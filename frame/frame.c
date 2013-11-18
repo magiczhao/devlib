@@ -407,8 +407,8 @@ void* thread_loop(void* arg)
                 break;
         }
         if(ep.is_leader){
-            dlock_unlock(&thread_lock);
             event_del(evt_listen);
+            dlock_unlock(&thread_lock);
             ep.is_leader = false;
         }
     }
